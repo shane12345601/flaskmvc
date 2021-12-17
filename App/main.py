@@ -71,8 +71,9 @@ def create_app(config={}):
     app.app_context().push()
     return app
 
+app = create_app()
+init_db(app)
+    
 if __name__ == "__main__":
-    app = create_app()
-    init_db(app)
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port, debug=True)
